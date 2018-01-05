@@ -8,7 +8,7 @@ contract MyContract is mortal {
     
     function MyContract() public {
         creator = msg.sender;
-        myVariable = 5;
+        myNumber = 5;
     }
 
     function getCreator() public constant returns(address) {
@@ -16,10 +16,10 @@ contract MyContract is mortal {
     }
     
     function setMyNumber(uint myNewNumber) public {
-        myVariable = myNewVariable;
+        myNumber = myNewNumber;
     }
  
     function getMyNumber() public constant returns(uint) {
-        return myVariable;
+        return myNumber;
     }
 }
