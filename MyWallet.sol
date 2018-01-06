@@ -25,7 +25,10 @@ contract MyWallet is mortal {
 
     function spendMoneyOn(address to, uint256 value, string reason) public returns (uint256) {
         if (owner == msg.sender) {
-            require(to.send(value));
+            bool sent = to.send(value);
+            
+            if (!sent)
+                revert();
         } else {
             proposalCounter++;
             proposals[proposalCounter] = Proposal(msg.sender, to, value, reason, false);
